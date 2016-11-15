@@ -9,6 +9,7 @@ wget -P /home/w205/data_files/ https://dl.dropboxusercontent.com/u/3865957/aff_c
 wget -P /home/w205/data_files/ https://dl.dropboxusercontent.com/u/3865957/traffic_clean.py
 #Melanie's Files
 wget -P /home/w205/data_files/ https://www.dropbox.com/s/6pwtama90zwp5yb/clean_census.py?dl=0 -O /home/w205/data_files/clean_census.py
+wget -P /home/w205/data_files/ https://www.dropbox.com/s/qq1uuca538c0ivl/clean_mapping.py?dl=0 -O /home/w205/data_files/clean_mapping.py
 wget -P /home/w205/data_files/ https://www.dropbox.com/s/vzkxq4rz6cq45lm/MSA_M2015_dl.xlsx?dl=0
 wget -P /home/w205/data_files/ http://files.zillowstatic.com/research/public/CountyCrossWalk_Zillow.csv
 #Priya's Files
@@ -24,7 +25,8 @@ python2.7 /home/w205/data_files/traffic_clean.py complete-data.xlsx traffic.csv
 python2.7 /home/w205/data_files/aff_clean.py Affordability_Income_2016Q2.csv aff_inc.csv
 #Melanie's Cleaning Files
 python2.7 /home/w205/data_files/clean_census.py "MSA_M2015_dl.xlsx?dl=0" "income.csv"
-tail -n +2 /home/w205/data_files/CountyCrossWalk_Zillow.csv > /home/w205/data_files/mapping.csv
+python2.7 /home/w205/data_files/clean_mapping.py "CountyCrossWalk_Zillow.csv" "income.csv" "mapping.csv"
+# tail -n +2 /home/w205/data_files/CountyCrossWalk_Zillow.csv > /home/w205/data_files/mapping.csv
 #Priya's Cleaning Files
 python2.7 /home/w205/data_files/zillow_process.py "Metro_MedianRentalPrice_1Bedroom.csv" "z1bedroom.csv"
 python2.7 /home/w205/data_files/zillow_process.py "Metro_MedianRentalPrice_2Bedroom.csv" "z2bedroom.csv"
@@ -58,8 +60,8 @@ hdfs dfs -put zstudio.csv /user/w205/data_files/studio/zstudio.csv
 #Lisa DDL File
 wget -P /home/w205/data_files https://dl.dropboxusercontent.com/u/3865957/hive_traffic_aff.sql
 hive -f /home/w205/data_files/hive_traffic_aff.sql
-#Melanie DDL File
-wget -P /home/w205/data_files/ https://www.dropbox.com/s/w9hit69ikn8qf28/mapping_schema.sql
+#Melanie DDL File - new ones
+wget -P /home/w205/data_files/ https://www.dropbox.com/s/xn1089ahzym23it/mapping_schema.sql
 wget -P /home/w205/data_files/ https://www.dropbox.com/s/1y64rjowz85w60y/census_income_schema.sql
 
 hive -f /home/w205/data_files/census_income_schema.sql
