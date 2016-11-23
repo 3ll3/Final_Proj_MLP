@@ -1,11 +1,12 @@
 DROP TABLE city_income_traffic;
+
 CREATE TABLE city_income_traffic AS
-SELECT distinct
+SELECT
 	aff_inc.regionid as metro_id,
 	aff_inc.year as aff_date,
 	aff_inc.wage as wage_usd,
 	traffic.region_id as metro_id2,
-	int(traffic.year) as year,
+	SUBSTRING(traffic.year,1,4) as year,
 	traffic.population as population,
 	traffic.congested_trav as congested_trav,
 	traffic.ahod_per_cons as ahod_per_cons,
@@ -14,5 +15,5 @@ SELECT distinct
 	traffic.csi_val as csi_val,
 	traffic.csi_rank as csi_rank
 
-FROM aff_inc
-	LEFT JOIN traffic on (traffic.region_id = aff_inc.regionid);
+FROM traffic
+	LEFT JOIN aff_inc on (traffic.region_id = aff_inc.regionid and aff_inc.year = SUBSTRING(traffic.year,1,4));
