@@ -58,7 +58,7 @@ hdfs dfs -put z4bedroom.csv /user/w205/data_files/4bed/z4bedroom.csv
 hdfs dfs -put z5bedroom.csv /user/w205/data_files/5bed/z5bedroom.csv
 hdfs dfs -put zstudio.csv /user/w205/data_files/studio/zstudio.csv
 #Lisa DDL File
-wget -P /home/w205/data_files https://dl.dropboxusercontent.com/u/3865957/hive_traffic_aff.sql
+wget -P /home/w205/data_files https://www.dropbox.com/s/kud8vfqyw0mfqqz/hive_traffic_aff.sql
 hive -f /home/w205/data_files/hive_traffic_aff.sql
 #Melanie DDL File - new ones
 wget -P /home/w205/data_files/ https://www.dropbox.com/s/xn1089ahzym23it/mapping_schema.sql
