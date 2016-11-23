@@ -2,6 +2,7 @@ DROP TABLE city_income_traffic;
 
 CREATE TABLE city_income_traffic AS
 SELECT
+	aff_inc.regionname as metro_region,
 	aff_inc.regionid as metro_id,
 	aff_inc.year as aff_date,
 	aff_inc.wage as wage_usd,
