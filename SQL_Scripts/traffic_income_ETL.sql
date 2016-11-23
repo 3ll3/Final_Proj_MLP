@@ -1,13 +1,8 @@
-DROP TABLE city_traffic;
-DROP TABLE city_income;
-
-
 CREATE TABLE IF NOT EXISTS city_income_traffic AS
 SELECT distinct
 	aff_inc.region_id as metro_id,
 	aff_inc.year as aff_date,
 	aff_inc.wage as wage_usd,
-
 	traffic.region_id as metro_id,
 	traffic.year as year,
 	traffic.population as population,
@@ -18,7 +13,6 @@ SELECT distinct
 	traffic.csi_val as csi_val,
 	traffic.csi_rank as csi_rank
 
-	CASE WHEN aff_inc.region_id is not null THEN "1" END as aff_df
 FROM aff_inc
-
-	LEFT JOIN traffic on (traffic.region_id = aff_inc.region_id);
+	LEFT JOIN traffic on (traffic.region_id = aff_inc.region_id)
+WHERE traffic.region_id is not null and aff_inc.region_id is not null;
