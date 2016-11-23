@@ -17,7 +17,7 @@ hive -f /home/w205/data_files/income.sql
 wget https://www.dropbox.com/s/c89bpqbwe6d67gn/traffic_income_ETL.sql
 
 #Lisa's ETL
-hive -f /home/w205/
+hive -f /home/w205/data_files/traffic_income_ETL.sql
 
 # Priya's file
 
