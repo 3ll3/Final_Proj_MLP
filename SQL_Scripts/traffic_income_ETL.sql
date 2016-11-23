@@ -1,4 +1,5 @@
-CREATE TABLE IF NOT EXISTS city_income_traffic AS
+DROP TABLE city_income_traffic;
+CREATE TABLE city_income_traffic AS
 SELECT distinct
 	aff_inc.regionid as metro_id,
 	aff_inc.year as aff_date,
