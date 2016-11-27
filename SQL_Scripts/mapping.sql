@@ -2,25 +2,27 @@ DROP TABLE mapping;
 
 CREATE TABLE IF NOT EXISTS mapping AS SELECT
 
-metro_region_id_zillow AS metro_id,
+SUBSTRING(metro_region_id_zillow, 1, LENGTH(metro_region_id_zillow)-2) AS metro_id,
 metro_name_zillow AS metro_name,
 state AS state,
-cbsa_code AS cbsa_code,
+SUBSTRING(cbsa_code, 1, LENGTH(cbsa_code)-2) AS cbsa_code,
 
-CASE WHEN state IN ("Alaska", "Hawaii", "Washington", "Oregon", "California")
+CASE WHEN state IN ("AK", "HI", "WA", "OR", "CA")
 THEN "West"
-WHEN state IN ("Montana", "Idaho", "Wyoming", "Nevada", "Utah", "Colorado")
+WHEN state IN ("MT", "ID", "WY", "NV", "UT", "CO")
 THEN "Mountain West"
-WHEN state in ("Arizona", "New Mexico", "Texas", "Oklahoma")
+WHEN state in ("AZ", "NM", "TX", "OK")
 THEN "Southwest"
-WHEN state in ("North Dakota", "South Dakota", "Nebraska", "Kansas",
-"Minnesota", "Iowa", "Missouri", "Wisconsin", "Illinois", "Indiana", 
-"Michigan", "Ohio")
+WHEN state in ("ND", "SD", "NE", "KS", "MN", "IA", "MO", "WI", "IL", "IN", "MI", "OH")
 THEN "Midwest"
-WHEN state in ("Pennsylvania", "New York", "New Jersey", "Vermont", 
-"New Hampshire", "Massachusetts", "Maine", "Connecticut", "Rhode Island")
+WHEN state in ("PA", "NY", "NJ", "VT", "NH", "MA", "MD", "ME", "CT", "RI", "DC", "DE")
 THEN "Northeast"
-ELSE "Southeast" END AS region 
+WHEN state in ("VA", "WV", "KY", "NC", "TN", "AR", "LA", "MS", "AL", "GA", "FL", "SC")
+THEN "Southeast"
+ELSE "Other" END AS region 
 
-from mapping_schema;
+FROM mapping_schema
+;
+
+
 
