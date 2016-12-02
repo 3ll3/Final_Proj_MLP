@@ -5,6 +5,7 @@ SELECT
 area as cbsa_code,
 SUBSTRING(occ_code, 0, 2) as occ_category,
 occ_code AS occ_code,
+occ_title AS occ_title,
 CASE WHEN tot_emp IN ("*", "**", "#", "##") THEN NULL ELSE CAST(tot_emp AS INT) END AS tot_emp,
 CASE WHEN jobs_1000 IN ("*", "**", "#", "##") THEN NULL ELSE jobs_1000 END AS jobs_1000,
 CASE WHEN h_mean IN ("*", "**", "#", "##") THEN NULL ELSE h_mean END AS h_mean,
