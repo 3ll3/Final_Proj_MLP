@@ -1,8 +1,8 @@
 Instructions on the order to run files (starting withe step1) and what these files do.
-Please note, if you have postgres and hadoop running on a UCB insance then skip to Step2-mlp.sh.
+Please note, if you have postgres and Hadoop running on a UCB instance then skip to Step2-mlp.sh.
 
 Step1-mlp.sh: 
-  Run the Step1 file if you do no currently have a drive mounted on /data. Thsi will take some time as this will set up postgres.
+  Run the Step1 file if you do no currently have a drive mounted on /data. This will take some time as this will set up postgres.
 
 Step2-mlp.sh: 
   Will update pip by wgetting the update and install needed python packages: numpy, cython, pandas, xlrd. This script will end 
@@ -45,7 +45,7 @@ Step3-mlp.sh:
     zillow_process.py -> "Metro_MedianRentalPrice_Studio.csv" "zstudio.csv"
 
   Step 3 continued by making 10 sub directories in HDFS and placing the clean data files into their respective directories.
-  Step 3 finishes by running the DDL scripts which create and load tables in HDFS utilizing hive.
+  Step 3 finishes by running the DDL scripts, which create and load tables in HDFS utilizing hive.
   DDL Scripts: 
     hive_traffic_aff.sql
     census_income_schema.sql
@@ -58,7 +58,7 @@ Step4-mlp.sh:
     mapping.sql -> mapping file that joins all other tables and normalized metro regions
     income.sql -> holds census income data
     traffic_income_ETL.sql -> holds traffic data
-    Rental_pricing_ETL.sql -> paritioned table that holds rentral pricing data for different house types.
+    Rental_pricing_ETL.sql -> partitioned table that holds rental pricing data for different house types.
   These ETL scripts create the final tables from the existing schema: rental_pricing, income , mapping, city_income_traffic.
   
 This completes creating the tables. The next step is to retrieve these tables in a Tableau dashboard (which we already have set up).
