@@ -1,4 +1,4 @@
-Instructions on the order to run files (starting withe step1) and what these files do.
+Instructions on the order to run files (starting with step1) and what these files do.
 Please note, if you have postgres and Hadoop running on a UCB instance then skip to Step2-mlp.sh.
 
 Step1-mlp.sh: 
