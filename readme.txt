@@ -61,6 +61,7 @@ Step4-mlp.sh:
     Rental_pricing_ETL.sql -> paritioned table that holds rentral pricing data for different house types.
   These ETL scripts create the final tables from the existing schema: rental_pricing, income , mapping, city_income_traffic.
   
+This completes creating the tables. The next step is to retrieve these tables in a Tableau dashboard (which we already have set up).
 
 
 
