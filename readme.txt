@@ -1,16 +1,70 @@
 Instructions on the order to run files (starting with step1) and what these files do.
-Please note, if you have postgres and Hadoop running on a UCB instance then skip to Step2-mlp.sh.
+PLEASE NOTE: if you have postgres and Hadoop running on a UCB instance, then skip to Step2-mlp.sh.
 
-Step1-mlp.sh: 
-  Run the Step1 file if you do no currently have a drive mounted on /data. This will take some time as this will set up postgres.
+ASSUMPTIONS: The bash commands included in this document are written with the assumption that the user
+is working on the UCB AMI used for Exercise 1 and the bulk of the course labs.  The commands assume the
+user has cloned our git repo to /home/w205.
 
-Step2-mlp.sh: 
-  Will update pip by wgetting the update and install needed python packages: numpy, cython, pandas, xlrd. This script will end 
 
-Step3-mlp.sh: 
+0) Read the report on this project, which can be found here:
+
+  /home/w205/Final_Project_MLP/Documentation/w205Final_Report.pdf
+
+
+
+1) Step1-mlp.sh: 
+  AS ROOT USER, run the Step1 file if you do no currently have a drive mounted on /data. This will take some time as this will set up postgres.
+
+  $ sh /home/w205/Final_Project_MLP/Bash_Scripts/step1-mlp.sh
+
+
+
+2) Step2-mlp.sh: 
+  AS ROOT USER, run this script to update pip and install needed python packages: numpy, cython, pandas, xlrd. 
+
+  $ sh /home/w205/Final_Project_MLP/Bash_Scripts/step2-mlp.sh
+
+
+
+3) Step3-mlp.sh: 
   Will wget all of the data files from their origin urls on Census, Zillow, and Texas A&M sites respectively.
   In addition to getting the data files, this script will also utilize wget to download python scripts and DDL scripts the team created.
 
+  SWITCH TO W205 USER:
+
+  $ su - w205  
+
+
+  AS W205 USER, run the following:
+
+  $ sh /home/w205/Final_Project_MLP/Bash_Scripts/step3-mlp.sh
+
+
+  (see additional notes below for further detail on the process happening in step 3)
+
+
+
+4) Step4-mlp.sh: 
+  Utilizes wget to import and then run the ETL files in hive.
+
+  AS 205 USER, run the following:
+
+  $ sh /home/w205/Final_Project_MLP/Bash_Scripts/step4-mlp.sh
+
+
+  (see additional notes below for further detail on the process happening in step 3)
+
+
+
+5) Explore the data via our Tableau application, found here:
+
+https://public.tableau.com/profile/publish/205ProjWkbk_Mini/whereiimap#!/publish-confirm
+
+
+
+==========================================================================================
+
+NOTES ON STEP 3:
   Please see the complete list of data files and python files imported using wget below:
 
   Data File Name:
@@ -52,6 +106,8 @@ Step3-mlp.sh:
     mapping_schema.sql
     zillow_load.sql 
 
+
+NOTES ON STEP 4:
 Step4-mlp.sh: 
   Utilizes wget to import and then run the ETL files in hive.
   ETL Files: 
