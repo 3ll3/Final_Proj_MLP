@@ -58,7 +58,7 @@ user has cloned our git repo to /home/w205.
 
 5) Explore the data via our Tableau application, found here:
 
-https://public.tableau.com/profile/publish/205ProjWkbk_Mini/whereiimap#!/publish-confirm
+https://public.tableau.com/profile/publish/205ProjWkbk_Mini/whereii#!/
 
 
 
